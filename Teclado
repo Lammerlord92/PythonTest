@@ -1,0 +1,7 @@
+valor=input()
+print(valor)
+valor=input("Introduce un valor:")
+print(valor)
+valor=input("Introduce un número entero:")
+valor=int(valor)
+print(valor+100)
