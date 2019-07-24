@@ -77,3 +77,24 @@ print(cola)
 n=cola.popleft()
 print(cola)
 print(n)
+
+
+from collections import Counter
+l=[1,2,3,4,2,4,5,6,4,2,3,2,3,2,3,6,7,8]
+c=Counter(l)
+
+print(c)
+print(c.most_common(1))
+
+print(c.most_common(3))
+
+from collections import defaultdict
+d=defaultdict(float)
+d['algo']
+print(d)
+
+
+from collections import namedtuple
+Persona=namedtuple('Persona','nombre apellido edad')
+p=Persona(nombre="Javier",apellido="Carmona",edad=27)
+print(p)
