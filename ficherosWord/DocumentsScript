@@ -1,0 +1,27 @@
+import docx
+
+doc = docx.Document()
+paragraph=doc.add_paragraph("test")
+paragraph.add_run( ' Continuing on this paragraph ')
+
+doc.add_paragraph("new paragraph")
+doc.add_paragraph("new paragraph with changing variable: #variable")
+doc.save('test.docx')
+
+
+def replace_string(filename,oldText,newTest):
+    doc = docx.Document(filename)
+    for p in doc.paragraphs:
+        if oldText in p.text:
+            inline = p.runs
+            # Loop added to work with runs (strings with same style)
+            for i in range(len(inline)):
+                if oldText in inline[i].text:
+                    text = inline[i].text.replace(oldText, newTest)
+                    inline[i].text = text
+            print (p.text)
+
+    doc.save('dest1.docx')
+    return 1
+
+replace_string('test.docx','#variable','ReplacedVariable')
